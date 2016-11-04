@@ -1,0 +1,150 @@
+format 76
+
+usecasecanvas 128898 usecase_ref 128002 // Gérer des vols
+  xyzwh 410 51 3005 64 32 label_xy 406 83
+end
+usecasecanvas 129026 usecase_ref 128130 // Creer des vols
+  xyzwh 269 3 3005 64 32 label_xy 265 35
+end
+usecasecanvas 129154 usecase_ref 128258 // Supprimer des vols
+  xyzwh 271 99 3005 64 32 label_xy 256 131
+end
+usecasecanvas 129282 usecase_ref 128386 // Modifier des vols
+  xyzwh 270 50 3005 64 32 label_xy 260 84
+end
+usecasecanvas 129410 usecase_ref 128514 // Gérer le personnel
+  xyzwh 418 206 3005 64 32 label_xy 405 238
+end
+usecasecanvas 129538 usecase_ref 128642 // Vendre des billets
+  xyzwh 418 798 3005 64 32 label_xy 407 830
+end
+usecasecanvas 129666 usecase_ref 128770 // Embarquer les clients
+  xyzwh 421 730 3005 64 32 label_xy 402 762
+end
+usecasecanvas 129794 usecase_ref 128898 // Enregistrer des clients
+  xyzwh 273 729 3005 64 32 label_xy 251 761
+end
+usecasecanvas 129922 usecase_ref 129026 // Fideliser les clients
+  xyzwh 419 634 3005 64 32 label_xy 406 666
+end
+usecasecanvas 130050 usecase_ref 129154 // Offrir des réductions
+  xyzwh 283 574 3005 64 32 label_xy 265 606
+end
+usecasecanvas 130178 usecase_ref 129282 // Proposer des vols free time
+  xyzwh 72 12 3005 64 32 label_xy 38 44
+end
+usecasecanvas 130818 usecase_ref 129922 // Envoyer des mails
+  xyzwh 551 9 3005 64 32 label_xy 539 41
+end
+usecasecanvas 130946 usecase_ref 130050 // Poser des jours de vacances
+  xyzwh 116 150 3005 64 32 label_xy 79 181
+end
+usecasecanvas 131074 usecase_ref 130178 // Modifier les jours de vacances
+  xyzwh 115 213 3005 64 32 label_xy 73 245
+end
+usecasecanvas 131202 usecase_ref 130306 // Supprimer des jours de vacances
+  xyzwh 119 274 3005 64 32 label_xy 70 306
+end
+usecasecanvas 131330 usecase_ref 130434 // Gérer les billets
+  xyzwh 425 430 3005 64 32 label_xy 430 465
+end
+usecasecanvas 131458 usecase_ref 130562 // Créer des billets
+  xyzwh 276 326 3005 64 32 label_xy 269 358
+end
+usecasecanvas 131586 usecase_ref 130690 // Supprimer des billets
+  xyzwh 279 378 3005 64 32 label_xy 261 410
+end
+usecasecanvas 131714 usecase_ref 130818 // Modifier des billets
+  xyzwh 279 431 3005 64 32 label_xy 267 463
+end
+usecasecanvas 131842 usecase_ref 130946 // Consulter des billets
+  xyzwh 277 487 3005 64 32 label_xy 261 519
+end
+usecasecanvas 131970 usecase_ref 131074 // Modification de la taxe de transport
+  xyzwh 67 432 3005 64 32 label_xy 15 464
+end
+classcanvas 132098 class_ref 128386 // Administrateur
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 702 352 2000
+end
+classcanvas 134786 class_ref 128514 // Personnel
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 724 715 2000
+end
+classcanvas 135298 class_ref 128642 // Transporteur
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 718 572 2000
+end
+usecasecanvas 136066 usecase_ref 131202 // Faire du surbooking
+  xyzwh 281 645 3005 64 32 label_xy 266 677
+end
+line 132226 ----
+  from ref 128898 z 3006 to ref 132098
+line 132610 ----
+  from ref 129410 z 3006 to ref 132098
+line 132738 ----
+  from ref 131330 z 3006 to ref 132098
+line 132866 ----
+  from ref 130818 z 3006 to ref 132098
+simplerelationcanvas 132994 simplerelation_ref 128002
+  from ref 130178 z 3006 to ref 129026
+end
+simplerelationcanvas 133122 simplerelation_ref 128130
+  from ref 129026 z 3006 to ref 128898
+end
+simplerelationcanvas 133250 simplerelation_ref 128258
+  from ref 129282 z 3006 to ref 128898
+end
+simplerelationcanvas 133378 simplerelation_ref 128386
+  from ref 129154 z 3006 to ref 128898
+end
+simplerelationcanvas 133506 simplerelation_ref 128514
+  from ref 130946 z 3006 to ref 129410
+end
+simplerelationcanvas 133634 simplerelation_ref 128642
+  from ref 131074 z 3006 to ref 129410
+end
+simplerelationcanvas 133762 simplerelation_ref 128770
+  from ref 131202 z 3006 to ref 129410
+end
+simplerelationcanvas 133890 simplerelation_ref 128898
+  from ref 131458 z 3006 to ref 131330
+end
+simplerelationcanvas 134018 simplerelation_ref 129026
+  from ref 131586 z 3006 to ref 131330
+end
+simplerelationcanvas 134146 simplerelation_ref 129154
+  from ref 131714 z 3006 to ref 131330
+end
+simplerelationcanvas 134274 simplerelation_ref 129282
+  from ref 131842 z 3006 to ref 131330
+end
+simplerelationcanvas 134530 simplerelation_ref 129538
+  from ref 130050 z 3006 to ref 129922
+end
+simplerelationcanvas 134658 simplerelation_ref 129666
+  from ref 129794 z 3006 to ref 129666
+end
+line 135170 ----
+  from ref 129666 z 3006 to ref 134786
+line 135426 ----
+  from ref 129922 z 3006 to ref 135298
+relationcanvas 135554 relation_ref 128514 // <generalisation>
+  from ref 132098 z 2001 to ref 135298
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 135682 relation_ref 128642 // <generalisation>
+  from ref 134786 z 2001 to ref 135298
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+line 135810 ----
+  from ref 129538 z 3006 to ref 134786
+simplerelationcanvas 135938 simplerelation_ref 129794
+  from ref 131970 z 3006 to ref 131714
+end
+simplerelationcanvas 136194 simplerelation_ref 129922
+  from ref 136066 z 3006 to ref 129922
+end
+end

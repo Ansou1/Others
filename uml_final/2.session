@@ -1,0 +1,39 @@
+window_sizes 1920 1017 450 1350 720 82
+diagrams
+  usecasediagram_ref 128002 // Company use case interne
+    1167 687 100 4 0 0
+  usecasediagram_ref 128258 // Companie use case externe
+    1167 687 100 4 0 0
+  usecasediagram_ref 128130 // Client use case
+    1167 687 100 4 0 0
+  sequencediagram_ref 128386 // Faire la révision
+    1167 687 100 4 0 0
+  sequencediagram_ref 128514 // Enregistrer Client
+    1167 687 100 4 0 0
+  sequencediagram_ref 128642 // Vente billet
+    1464 859 100 4 0 0
+  sequencediagram_ref 128770 // Vente billet internet
+    1167 687 100 4 0 0
+  sequencediagram_ref 128898 // Créer des vols
+    1167 687 100 4 358 0
+  sequencediagram_ref 135426 // Supprimer des vols
+    1167 688 100 4 0 0
+  active  sequencediagram_ref 135554 // Vendre consommable
+    1460 861 100 4 0 0
+end
+show_stereotypes
+selected operation_ref 141954 // buyConsommable
+open
+  usecase_ref 128130 // Creer des vols
+  usecase_ref 128258 // Supprimer des vols
+  usecase_ref 128898 // Enregistrer des clients
+  class_ref 128898 // PersonnelManager
+  class_ref 129154 // PlaneManager
+  class_ref 129282 // Plane
+  class_ref 129538 // Systeme
+  usecase_ref 130562 // Créer des billets
+  usecase_ref 138626 // Vendre Consommable
+  usecase_ref 131330 // Acheter des billets sur internet
+  usecase_ref 131586 // Acheter des billets comptoire
+end
+end

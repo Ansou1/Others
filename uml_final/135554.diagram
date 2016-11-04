@@ -1,0 +1,103 @@
+format 76
+
+classinstance 128002 class_ref 128770 // Client
+  name ""   xyz 43 4 2005 life_line_z 2000
+classinstance 128130 class_ref 129538 // Systeme
+  name ""   xyz 122 4 2000 life_line_z 2000
+classinstance 128258 class_ref 129154 // PlaneManager
+  name ""   xyz 238 4 2000 life_line_z 2000
+classinstance 128386 class_ref 129282 // Plane
+  name ""   xyz 352 4 2000 life_line_z 2000
+durationcanvas 128642 classinstance_ref 128002 // :Client
+  xyzwh 54 80 2010 11 343
+end
+durationcanvas 128770 classinstance_ref 128130 // :Systeme
+  xyzwh 145 76 2010 11 310
+end
+durationcanvas 129026 classinstance_ref 128258 // :PlaneManager
+  xyzwh 274 99 2010 11 267
+end
+durationcanvas 129282 classinstance_ref 128386 // :Plane
+  xyzwh 371 116 2010 11 43
+end
+durationcanvas 130434 classinstance_ref 128386 // :Plane
+  xyzwh 371 319 2010 11 51
+end
+msg 128898 synchronous
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128770
+  yz 84 2015 msg operation_ref 141314 // "getConsommable()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Plane plane"
+  label_xy 60 70
+msg 129154 synchronous
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 129026
+  yz 109 2020 msg operation_ref 141442 // "getConsommable()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Plane plane"
+  label_xy 160 90
+msg 129410 synchronous
+  from durationcanvas_ref 129026
+  to durationcanvas_ref 129282
+  yz 121 2025 msg operation_ref 141570 // "getConsommable()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 283 107
+msg 129538 return
+  from durationcanvas_ref 129282
+  to durationcanvas_ref 129026
+  yz 142 2030 explicitmsg "Consommable[]"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 295 128
+msg 129666 return
+  from durationcanvas_ref 129026
+  to durationcanvas_ref 128770
+  yz 171 2015 explicitmsg "Consommable[]"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 179 157
+msg 129794 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128642
+  yz 200 2020 explicitmsg "Consommable[]"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 69 186
+msg 130050 synchronous
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128770
+  yz 251 2025 msg operation_ref 141698 // "buyConsommable()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Consommable consommable"
+  label_xy 74 236
+msg 130306 synchronous
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 129026
+  yz 283 2015 msg operation_ref 141826 // "buyConsommable()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Consommable consommable"
+  label_xy 166 263
+msg 130562 synchronous
+  from durationcanvas_ref 129026
+  to durationcanvas_ref 130434
+  yz 319 2015 msg operation_ref 141954 // "buyConsommable()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Consommable consommable"
+  label_xy 214 305
+msg 130690 return
+  from durationcanvas_ref 130434
+  to durationcanvas_ref 129026
+  yz 341 2015 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 321 327
+msg 130818 return
+  from durationcanvas_ref 129026
+  to durationcanvas_ref 128770
+  yz 355 2020 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 208 341
+msg 130946 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128642
+  yz 369 2015 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 98 355
+end

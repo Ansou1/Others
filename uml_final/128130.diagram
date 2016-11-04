@@ -1,0 +1,47 @@
+format 76
+
+usecasecanvas 128002 usecase_ref 131330 // Acheter des billets sur internet
+  xyzwh 135 59 3005 64 32 label_xy 93 91
+end
+usecasecanvas 128130 usecase_ref 131458 // Acheter des billets en agence
+  xyzwh 138 125 3005 64 32 label_xy 98 157
+end
+usecasecanvas 128258 usecase_ref 131586 // Acheter des billets comptoire
+  xyzwh 138 192 3005 64 32 label_xy 101 224
+end
+usecasecanvas 128386 usecase_ref 131714 // Acheter des billets par téléphone
+  xyzwh 139 257 3005 64 32 label_xy 92 289
+end
+usecasecanvas 128514 usecase_ref 131842 // Acheter des billets par courrier
+  xyzwh 140 322 3005 64 32 label_xy 97 354
+end
+usecasecanvas 128770 usecase_ref 131970 // Acheter des billets
+  xyzwh 365 218 3005 64 32 label_xy 352 250
+end
+usecasecanvas 129538 usecase_ref 132098 // Annuler une commande
+  xyzwh 353 409 3005 64 32 label_xy 328 441
+end
+classcanvas 129666 class_ref 128770 // Client
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 691 282 2000
+end
+simplerelationcanvas 128898 simplerelation_ref 130050
+  from ref 128002 z 3006 to ref 128770
+end
+simplerelationcanvas 129026 simplerelation_ref 130178
+  from ref 128130 z 3006 to ref 128770
+end
+simplerelationcanvas 129154 simplerelation_ref 130306
+  from ref 128258 z 3006 to ref 128770
+end
+simplerelationcanvas 129282 simplerelation_ref 130434
+  from ref 128386 z 3006 to ref 128770
+end
+line 129794 ----
+  from ref 128770 z 3006 to ref 129666
+line 129922 ----
+  from ref 129538 z 3006 to ref 129666
+simplerelationcanvas 130050 simplerelation_ref 130562
+  from ref 128514 z 3006 to ref 128770
+end
+end

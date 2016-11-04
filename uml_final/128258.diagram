@@ -1,0 +1,32 @@
+format 76
+
+usecasecanvas 128002 usecase_ref 129410 // Faire le plein
+  xyzwh 207 22 3005 64 32 label_xy 209 54
+end
+usecasecanvas 128130 usecase_ref 129538 // Faire le menage
+  xyzwh 211 101 3005 64 32 label_xy 205 133
+end
+usecasecanvas 128258 usecase_ref 129666 // Acheter des consommable
+  xyzwh 211 173 3005 64 32 label_xy 179 205
+end
+usecasecanvas 128386 usecase_ref 129794 // Faire la révision
+  xyzwh 213 254 3005 64 32 label_xy 207 286
+end
+classcanvas 128514 class_ref 128642 // Transporteur
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 603 116 2000
+end
+usecasecanvas 129154 usecase_ref 138626 // Vendre Consommable
+  xyzwh 235 355 3005 64 32 label_xy 214 387
+end
+line 128642 ----
+  from ref 128002 z 3006 to ref 128514
+line 128770 ----
+  from ref 128130 z 3006 to ref 128514
+line 128898 ----
+  from ref 128258 z 3006 to ref 128514
+line 129026 ----
+  from ref 128386 z 3006 to ref 128514
+line 129282 ----
+  from ref 129154 z 3006 to ref 128514
+end

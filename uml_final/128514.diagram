@@ -1,0 +1,264 @@
+format 76
+
+classinstance 128002 class_ref 128770 // Client
+  name ""   xyz 14 4 2005 life_line_z 2000
+classinstance 128130 class_ref 128514 // Personnel
+  name ""   xyz 88 4 2005 life_line_z 2000
+classinstance 128258 class_ref 129666 // ClientManager
+  name ""   xyz 250 4 2010 life_line_z 2000
+classinstance 128386 class_ref 129026 // FlightManager
+  name ""   xyz 370 4 2015 life_line_z 2000
+classinstance 128514 class_ref 129794 // TicketManager
+  name ""   xyz 574 4 2000 life_line_z 2000
+classinstance 128642 class_ref 129922 // Ticket
+  name ""   xyz 768 6 2000 life_line_z 2000
+classinstance 128770 class_ref 129410 // Storage
+  name ""   xyz 683 4 2005 life_line_z 2000
+classinstance 128898 class_ref 130050 // Flight
+  name ""   xyz 502 4 2000 life_line_z 2000
+classinstance 129026 class_ref 129538 // Systeme
+  name ""   xyz 171 4 2010 life_line_z 2000
+durationcanvas 129154 classinstance_ref 128002 // :Client
+  xyzwh 25 75 2010 11 708
+end
+durationcanvas 129282 classinstance_ref 128130 // :Personnel
+  xyzwh 110 74 2010 11 708
+end
+durationcanvas 129538 classinstance_ref 129026 // :Systeme
+  xyzwh 194 68 2010 11 724
+end
+durationcanvas 130050 classinstance_ref 128898 // :Flight
+  xyzwh 521 242 2010 11 406
+end
+durationcanvas 131330 classinstance_ref 128642 // :Ticket
+  xyzwh 787 138 2010 11 252
+end
+durationcanvas 132098 classinstance_ref 128514 // :TicketManager
+  xyzwh 611 118 2010 11 304
+end
+durationcanvas 132354 classinstance_ref 128770 // :Storage
+  xyzwh 704 138 2010 11 92
+end
+durationcanvas 133634 classinstance_ref 128258 // :ClientManager
+  xyzwh 286 452 2010 11 96
+end
+durationcanvas 134146 classinstance_ref 128770 // :Storage
+  xyzwh 704 475 2010 11 57
+end
+durationcanvas 135554 classinstance_ref 128386 // :FlightManager
+  xyzwh 405 94 2010 11 713
+end
+durationcanvas 135810 classinstance_ref 128770 // :Storage
+  xyzwh 704 683 2010 11 64
+end
+durationcanvas 136322 classinstance_ref 128770 // :Storage
+  xyzwh 704 68 2010 11 50
+end
+msg 129410 synchronous
+  from durationcanvas_ref 129154
+  to durationcanvas_ref 129282
+  yz 78 2015 explicitmsg "register()"
+  show_full_operations_definition no drawing_language java show_context_mode no
+  args "TicketInfo ticketInfo, ClientInfo clientInfo"
+  label_xy 18 54
+msg 129666 synchronous
+  from durationcanvas_ref 129282
+  to durationcanvas_ref 129538
+  yz 95 2020 explicitmsg "register()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "TicketInfo ticketInfo, ClientInfo clientInfo"
+  label_xy 126 84
+msg 129922 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 135554
+  yz 248 2025 msg operation_ref 129538 // "registerTicket()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Ticket ticket"
+  label_xy 253 234
+msg 130178 synchronous
+  from durationcanvas_ref 135554
+  to durationcanvas_ref 130050
+  yz 261 2030 msg operation_ref 129666 // "registerTicket()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Ticket ticket"
+  label_xy 425 242
+msg 130306 return
+  from durationcanvas_ref 130050
+  to durationcanvas_ref 135554
+  yz 290 2035 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 473 276
+msg 130434 return
+  from durationcanvas_ref 135554
+  to durationcanvas_ref 129538
+  yz 282 2040 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 310 268
+msg 130690 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 132098
+  yz 341 2015 msg operation_ref 129794 // "changeState()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Ticket ticket, TicketState state"
+  label_xy 355 327
+msg 131458 synchronous
+  from durationcanvas_ref 132098
+  to durationcanvas_ref 131330
+  yz 346 2015 msg operation_ref 130050 // "changeState()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "TicketState state"
+  label_xy 599 331
+msg 131586 return
+  from durationcanvas_ref 131330
+  to durationcanvas_ref 132098
+  yz 379 2015 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 662 365
+msg 131714 return
+  from durationcanvas_ref 132098
+  to durationcanvas_ref 129538
+  yz 382 2020 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 394 371
+msg 132226 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 132098
+  yz 135 2025 msg operation_ref 130306 // "getTicket()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "TicketInfo ticketInfo"
+  label_xy 428 125
+msg 132482 synchronous
+  from durationcanvas_ref 132098
+  to durationcanvas_ref 132354
+  yz 139 2030 msg operation_ref 132098 // "getTicket()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "TicketInfo ticketInfo"
+  label_xy 642 125
+msg 132866 synchronous
+  from durationcanvas_ref 132354
+  to durationcanvas_ref 131330
+  yz 157 2035 msg operation_ref 132226 // "createTicket()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "TicketInfo ticketInfo"
+  label_xy 722 148
+msg 132994 return
+  from durationcanvas_ref 131330
+  to durationcanvas_ref 132354
+  yz 188 2015 explicitmsg "Ticket"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 746 174
+msg 133122 return
+  from durationcanvas_ref 132354
+  to durationcanvas_ref 132098
+  yz 200 2020 explicitmsg "Ticket"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 658 186
+msg 133250 return
+  from durationcanvas_ref 132098
+  to durationcanvas_ref 129538
+  yz 204 3005 explicitmsg "Ticket"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 403 190
+msg 133506 return
+  from durationcanvas_ref 129282
+  to durationcanvas_ref 129154
+  yz 745 2020 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 66 731
+msg 133762 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 133634
+  yz 454 2015 msg operation_ref 130690 // "getClient()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "ClientInfo clientInfo"
+  label_xy 219 439
+msg 134274 synchronous
+  from durationcanvas_ref 133634
+  to durationcanvas_ref 134146
+  yz 475 2015 msg operation_ref 130818 // "getClient()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "ClientInfo clientInfo"
+  label_xy 440 461
+msg 134402 return
+  from durationcanvas_ref 134146
+  to durationcanvas_ref 133634
+  yz 500 2015 explicitmsg "Client"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 496 486
+msg 134530 return
+  from durationcanvas_ref 133634
+  to durationcanvas_ref 129538
+  yz 521 2015 explicitmsg "Client"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 241 507
+msg 134786 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 135554
+  yz 570 2015 msg operation_ref 130946 // "registerClient()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Client client"
+  label_xy 252 556
+msg 135042 synchronous
+  from durationcanvas_ref 135554
+  to durationcanvas_ref 130050
+  yz 585 2020 msg operation_ref 131074 // "registerClient()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Client client"
+  label_xy 432 571
+msg 135170 return
+  from durationcanvas_ref 130050
+  to durationcanvas_ref 135554
+  yz 616 2015 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 470 602
+msg 135298 return
+  from durationcanvas_ref 135554
+  to durationcanvas_ref 129538
+  yz 625 2020 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 307 611
+msg 135426 return
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 129282
+  yz 739 2015 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 159 725
+msg 135682 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 135554
+  yz 662 2020 msg operation_ref 131202 // "saveFlight()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 286 648
+msg 135938 synchronous
+  from durationcanvas_ref 135554
+  to durationcanvas_ref 135810
+  yz 698 2025 msg operation_ref 131330 // "saveFlight()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "Flight flight"
+  label_xy 515 684
+msg 136066 return
+  from durationcanvas_ref 135810
+  to durationcanvas_ref 135554
+  yz 722 2015 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 562 708
+msg 136194 return
+  from durationcanvas_ref 135554
+  to durationcanvas_ref 129538
+  yz 729 2020 explicitmsg "OK"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 307 715
+msg 136450 synchronous
+  from durationcanvas_ref 129538
+  to durationcanvas_ref 136322
+  yz 75 3005 msg operation_ref 131458 // "getFlight()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "FlightInfo flightInfo"
+  label_xy 387 61
+msg 137218 return
+  from durationcanvas_ref 136322
+  to durationcanvas_ref 135554
+  yz 105 3005 explicitmsg "Flight"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 548 91
+end

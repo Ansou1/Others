@@ -1,0 +1,12 @@
+window_sizes 1920 1003 450 1350 720 100
+diagrams
+  active  sequencediagram_ref 135554 // Vendre consommable
+    1167 658 100 4 0 0
+end
+show_stereotypes
+selected sequencediagram_ref 135554 // Vendre consommable
+open
+  usecase_ref 138626 // Vendre Consommable
+  usecaseview_ref 128130 // Client use case
+end
+end
