@@ -1,0 +1,7 @@
+#name: int main(argc, argv) { ... }
+# --
+int	main(int ac, char **av)
+{
+  $0
+  return (0);
+}

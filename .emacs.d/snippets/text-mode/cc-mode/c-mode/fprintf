@@ -1,0 +1,1 @@
+fprintf(${1:flux out}, "${2:format}", ${3:var});
