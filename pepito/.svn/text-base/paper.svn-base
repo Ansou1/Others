@@ -1,0 +1,115 @@
+
+								/\ \       /\ \         /\ \     /\ \     /\ \         /\ \
+							       /  \ \     /  \ \       /  \ \    \ \ \    \_\ \       /  \ \
+			     				      / /\ \ \   / /\ \ \     / /\ \ \   /\ \_\   /\__ \     / /\ \ \
+			     				     / / /\ \_\ / / /\ \_\   / / /\ \_\ / /\/_/  / /_ \ \   / / /\ \ \
+			    				    / / /_/ / // /_/_ \/_/  / / /_/ / // / /    / / /\ \ \ / / /  \ \_\
+			   				   / / /__\/ // /____/\    / / /__\/ // / /    / / /  \/_// / /   / / /
+			  				  / / /_____// /\____\/   / / /_____// / /    / / /      / / /   / / /
+			 				 / / /      / / /______  / / /   ___/ / /__  / / /      / / /___/ / /
+							/ / /      / / /_______\/ / /   /\__\/_/___\/_/ /      / / /____\/ /
+							\/_/       \/__________/\/_/    \/_________/\_\/       \/_________/
+
+
+
+
+						     .-'''''-.
+						     |'-----'|
+						     |-.....-|
+						     |       |
+			     			     |       |
+			            _,._             |       |
+			       __.o`   o`"-.         |       |
+			    .-O o `"-.o   O )_,._    |       |
+			   ( o   O  o )--.-"`O   o"-.`'-----'`
+			    '--------'  (   o  O    o)
+			                 `----------`
+
+					 ########## INGREDIENT SECRET ##########
+
+-> La chaine de caractère chiffrée se trouve dans la lib partagee : libsecret.so après le "Need more %s" lors de la visualisation en mode hexadecimal d'emacs "hexl-mode"
+   "fe1e d41f d407 c516 9117 c453 d701 de1e d014 d400".
+      C'est une chaine de caractère chiffrée en XOR elle est chiffré grace a deux clés qui effectue un xor sur les caractère ou une clé chiffre un caractère
+   et l'autre le caractère suivant et sa pour tous les caractère de la chaine.
+      C'est deux clés se trouve lors du suivis de la fonction handlerMakeSecretRecipes lors d'un start debug grace a
+   gdb il faut afficher la valeur en int du deuxieme argument de l'instruction xor dans le code assembleur.
+
+   La fonction pour déchiffrer :
+
+   int	main()
+   {
+	int  cnt;
+	char key[] = {0xfe,0x1e,0xd4, 0x1f, 0xd4, 0x07, 0xc5, 0x16, 0x91, 0x17, 0xc4, 0x53, 0xd7, 0x01, 0xde, 0x1e, 0xd0, 0x14, 0xd4, 0};
+
+	cnt = 0;
+	while (key[n + 1])
+	{
+	 key[n] = key[n] ^ 177;
+	 key[n + 1] = key[n + 1] ^ 115;
+	 n += 2;
+	}
+	key[n] = key[n] ^ 117;
+	printf("%s\n", key);
+   }
+
+   L'ingrédient secret est donc : => Omelette du fromage
+
+
+					 ########## main.c ##########
+
+-> Le PASSWORD ADMIN était en commentaire dans le code. Ainsi tout le monde peut se connecter sous le mode admin en ayant les sources du serveur.
+   Nous avons effacer ce commentaire dans le code.
+
+-> Dans la fonction check_password, il y a un risque de segmentation fault au niveau du strcpy. Utilisation d'un strncpy pour limiter la taille. (l.63)
+
+-> Retour de Malloc sur check_password. (l.73)
+
+-> Retour de tous les get_str pour éviter les segmentation fault, quand il y a des commandes sans arguments.
+
+-> Check si le password dépasse 512, on check si la taille du password est supérieur à 512, sinon message d'erreur. (l.122)
+
+-> Dans handler_buy_ingredient, on check l'overflow de int, si le stock ingrédient , plus ce que l'on achète est inférieur au stock on fait overflow.
+   Message d'erreur dissant que le stock est plein.
+
+-> Dans handler_make_recipes, on check l'overflow de int. (l.261)
+
+-> Check du retour du getnbr. (l.321/l.373)
+
+-> utilisation de la fonction systeme est très dangeureuse. Celle-ci peut nuire au serveur. Possibiliter d'execution de commande shell. (l.340)
+
+					########## utils.c ##########
+-> Dans getstr
+   {
+	-> check du retour de malloc et de getnbr. (l.60).
+
+	-> on check si on ne sort pas de la zone mémoire avant de rajouter plus len. (l.65)
+   }
+
+
+
+
+
+
+							      (
+								)     (
+							___...(-------)-....___
+					            .-""       )    (          ""-.
+					      .-'``'|-._             )         _.-|
+					     /  .--.|   `""---...........---""`   |
+					    /  /    |                             |
+					    |  |    |         I LOVE SECU         |
+					     \  \   |                             |
+					      `\ `\ |                             |
+					        `\ `|                             |
+					        _/ /\                             /
+					       (__/  \                           /
+					    _..---""` \                         /`""---.._
+					 .-'           \                       /          '-.
+				        :               `-.__             __.-'              :
+				        :                  ) ""---...---"" (                 :
+					 '._               `"--...___...--"`              _.'
+					   \""--..__                              __..--""/
+					    '._     """----.....______.....----"""     _.'
+					       `""--..,,_____            _____,,..--""`
+					                     `"""----"""`
+
