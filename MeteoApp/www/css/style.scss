@@ -1,0 +1,8 @@
+@import "compass";
+
+$default-transition-duration:.3s;
+$duration:.5s;
+
+$icon-sprite-dimensions:true;
+$icon-layout:smart;
+@import "img/*.png";
